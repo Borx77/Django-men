@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>New post</h1>
+    <p> Creado <strong> {{ form.title.value }} </strong> con un gran éxito </p>
+    <p>
+        <a href="{% url 'post_list' %}">Volver</a>
+    </p>
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
